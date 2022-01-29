@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>E PASS Extension</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div id="home">
+      <div class="home-heading"><h3>Password</h3></div>
+      <div class="home-password">
+        <div class="home-password-none">
+          <p>No passwords available for this site.</p>
+          <a href="/password.html">
+            <button type="button" id="generate-btn" style="margin-top: 15px">
+              Generate
+            </button>
+          </a>
+        </div>
+        <div class="home-available">
+          <p style="margin-top: 5px">Current website Username and Password</p>
+          <ul>
+            <li class="home-password-available">
+              <div id="home-email-item" class="home-password-available-item">
+                Email
+              </div>
+              <i class="bx bx-copy"></i>
+            </li>
+            <li class="home-password-available">
+              <div id="home-password-item" class="home-password-available-item">
+                Password
+              </div>
+              <i class="bx bx-copy"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="home.js"></script>
+  </body>
+</html>

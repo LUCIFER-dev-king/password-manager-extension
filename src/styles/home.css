@@ -1,0 +1,28 @@
+.home-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-password-none,
+.home-available {
+  display: none;
+}
+
+.home-password-none.active {
+  display: block;
+}
+
+.home-available.active {
+  display: block;
+}
+
+.home-password-available {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  margin-top: 15px;
+  padding: 5px 5px;
+}
