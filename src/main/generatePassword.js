@@ -30,15 +30,18 @@ import {
         enryptedPasswordList[key] = encryptedValue;
       }
 
-      fetch(`http://localhost:8000/api/password/create/${user._id}`, {
-        credentials: "include",
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(enryptedPasswordList),
-      })
+      fetch(
+        `https://epassbackend.herokuapp.com/api/password/create/${user._id}`,
+        {
+          credentials: "include",
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(enryptedPasswordList),
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           console.log("Password saved in vault");

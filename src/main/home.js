@@ -6,7 +6,7 @@ const homeAvailable = document.querySelector(".home-available");
 const homeNone = document.querySelector(".home-password-none");
 
 const getCurrentTabPassword = (id, url) => {
-  fetch(`http://localhost:8000/api/password/${id}`, {
+  fetch(`https://epassbackend.herokuapp.com/api/password/${id}`, {
     credentials: "include",
     method: "POST",
     headers: {

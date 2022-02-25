@@ -20,7 +20,7 @@ import "../styles/popup.css";
   function singInUser() {
     var email = loginEmail.value;
     var password = loginPassword.value;
-    fetch("http://localhost:8000/api/signin", {
+    fetch("https://epassbackend.herokuapp.com/api/signin", {
       credentials: "include",
       method: "POST",
       headers: {
