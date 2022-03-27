@@ -25,9 +25,12 @@ import {
     chrome.storage.sync.get("user", ({ user }) => {
       var user = JSON.parse(user);
       for (const [key, value] of Object.entries(enryptedPasswordList)) {
-        let encryptedValue =
-          key !== "siteUrl" ? encryptValues(user._id, value) : value;
-        enryptedPasswordList[key] = encryptedValue;
+        if (key === "siteUrl" || key === "vaultName") {
+          enryptedPasswordList[key] = value;
+        } else {
+          let encryptedValue = encryptValues(user._id, value);
+          enryptedPasswordList[key] = encryptedValue;
+        }
       }
 
       fetch(
@@ -50,6 +53,9 @@ import {
           passwordInputUrl.value = "";
           passwordInputEmail.value = "";
           passwordInputName.value = "";
+
+          // window.location.href =
+          //   "http://chrome-extension://kghinbmpijahclnknpehcnikkgkfpkle/";
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -67,4 +73,17 @@ import {
       passwordSymbol.checked
     );
   });
+
+  window.onload = function () {
+    try {
+      chrome.storage.sync.get("user", ({ user }) => {
+        let queryOptions = { active: true, currentWindow: true };
+        chrome.tabs.query(queryOptions, (result) => {
+          passwordInputUrl.value = result[0].url;
+        });
+      });
+    } catch (error) {
+      console.log("Error occured");
+    }
+  };
 })();
